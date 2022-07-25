@@ -53,4 +53,9 @@ public class UIContainerManager : MonoBehaviour
     {
         SceneManager.LoadScene("1V3");
     }
+
+    public void OnTutorialButtonPressed()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }
