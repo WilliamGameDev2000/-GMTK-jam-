@@ -19,12 +19,6 @@ public class DiceDodgerController : MonoBehaviour
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
-        GameStateManager.Instance.OnStateChange += OnGameStateChange;
-    }
-
-    private void OnDestroy()
-    {
-        GameStateManager.Instance.OnStateChange -= OnGameStateChange;
     }
 
     private void OnEnable()
@@ -61,10 +55,5 @@ public class DiceDodgerController : MonoBehaviour
     {
         Move();
         Gravity();
-    }
-
-    private void OnGameStateChange(State NewState)
-    {
-        enabled = NewState == State.Gameplay;
     }
 }
