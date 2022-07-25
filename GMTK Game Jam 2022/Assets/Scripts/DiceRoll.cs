@@ -34,7 +34,7 @@ public class DiceRoll : MonoBehaviour
 
         if (DiceVel.x > 0f || DiceVel.y > 0f || DiceVel.z > 0)
         {
-            DiceCheckZone.checkZone.Activate(true);
+            DiceCheckZone.Instance.Activate(true);
         }
     }
 }
