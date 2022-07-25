@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DiceRoll : MonoBehaviour
 {
-    [SerializeField] Rigidbody Dice;
-
+    public static GameObject Dice;
+    Rigidbody DiceRb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        DiceRb = Dice.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -18,13 +18,17 @@ public class DiceRoll : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
+            foreach(Transform side in Dice.transform)
+            {
+                side.GetComponent<SphereCollider>().enabled = true;
+            }
             float dirX = Random.Range(0, 500);
             float dirY = Random.Range(0, 500);
             float dirZ = Random.Range(0, 500);
             transform.rotation = Quaternion.identity;
 
-            Dice.AddForce(transform.up * 350);
-            Dice.AddTorque(dirX, dirY, dirZ);
+            DiceRb.AddForce(transform.up * 350);
+            DiceRb.AddTorque(dirX, dirY, dirZ);
         }
     }
 }
