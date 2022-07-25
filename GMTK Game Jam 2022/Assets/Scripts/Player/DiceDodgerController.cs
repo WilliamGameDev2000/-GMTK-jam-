@@ -14,6 +14,7 @@ public class DiceDodgerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float gravityMultiplier = 1f;
 
+    private Vector2 moveInput = Vector2.zero;
     private Vector3 velocity = new Vector3(0, 0, 0);
 
     private void Awake()
@@ -44,10 +45,15 @@ public class DiceDodgerController : MonoBehaviour
         }
     }
 
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
+
     private void Move()
     {
-        Vector3 moveVector = new Vector3(movement.ReadValue<Vector2>().x, 0, movement.ReadValue<Vector2>().y);
-        controller.Move(moveVector * moveSpeed * Time.deltaTime);
+        Vector3 moveVector = new Vector3(moveInput.x, 0, moveInput.y);
+        controller.Move(moveSpeed * Time.deltaTime * moveVector);
         controller.Move(velocity * Time.deltaTime);
     }
 

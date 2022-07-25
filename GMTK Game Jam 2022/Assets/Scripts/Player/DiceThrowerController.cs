@@ -16,6 +16,9 @@ public class DiceThrowerController : MonoBehaviour
 
     [SerializeField] private DiceSpawn diceSpawner;
 
+    Vector3 moveVector = Vector3.zero;
+    private bool throwDice = false;
+
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
@@ -26,7 +29,7 @@ public class DiceThrowerController : MonoBehaviour
         verticalMovement = playerInputActions.DiceThrower.VerticalMovement;
         verticalMovement.Enable();
 
-        playerInputActions.DiceThrower.ThrowDice.performed += DoThrow;
+        //playerInputActions.DiceThrower.ThrowDice.performed += DoThrow;
         playerInputActions.DiceThrower.ThrowDice.Enable();
     }
 
@@ -36,21 +39,35 @@ public class DiceThrowerController : MonoBehaviour
         playerInputActions.DiceThrower.ThrowDice.Disable();
     }
 
-    private void DoThrow(InputAction.CallbackContext obj)
+    public void OnThrow(InputAction.CallbackContext context)
     {
-        Debug.Log("Throw Dice");
-        diceSpawner.SpawnDice(this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
+        throwDice = context.action.triggered;
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveVector = new Vector3(context.ReadValue<float>(), 0, 0);
     }
 
     private void Move()
     {
-        Vector3 moveVector = new Vector3(verticalMovement.ReadValue<float>(), 0, 0);
         controller.Move(moveVector * moveSpeed * Time.deltaTime);
+    }
+
+    private void Throw()
+    {
+        if(throwDice)
+        {
+            Debug.Log("Throw Dice");
+            diceSpawner.SpawnDice(this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
+            throwDice = false;
+        }
     }
 
     private void FixedUpdate()
     {
         Move();
+        Throw();
     }
 
 }
