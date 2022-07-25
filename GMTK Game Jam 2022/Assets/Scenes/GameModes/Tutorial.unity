@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8433448144283424868, guid: 7b81e271218b02146a500fa3fa4f7029, type: 3}
+      propertyPath: m_TagString
+      value: Dodger
+      objectReference: {fileID: 0}
     - target: {fileID: 8433448144283424878, guid: 7b81e271218b02146a500fa3fa4f7029, type: 3}
       propertyPath: m_StepOffset
       value: 0

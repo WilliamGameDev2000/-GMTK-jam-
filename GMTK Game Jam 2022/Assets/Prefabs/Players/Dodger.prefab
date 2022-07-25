@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 8433448144283424878}
   m_Layer: 0
   m_Name: Dodger
-  m_TagString: Untagged
+  m_TagString: Dodger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
