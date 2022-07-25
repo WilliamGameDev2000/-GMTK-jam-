@@ -11,6 +11,7 @@ public class DiceThrowerController : MonoBehaviour
     private InputAction verticalMovement;
 
     [SerializeField] private CharacterController controller;
+
     [SerializeField] private float moveSpeed = 1f;
 
     private void Awake()
@@ -38,9 +39,14 @@ public class DiceThrowerController : MonoBehaviour
         Debug.Log("Throw Dice");
     }
 
-    private void FixedUpdate()
+    private void Move()
     {
         Vector3 moveVector = new Vector3(verticalMovement.ReadValue<float>(), 0, 0);
         controller.Move(moveVector * moveSpeed * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 }
