@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class DiceSpawn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject DicePrefab;
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnDice(Vector3 position, Quaternion rotation)
     {
-        
+        Instantiate(DicePrefab, position, rotation);
     }
 }
