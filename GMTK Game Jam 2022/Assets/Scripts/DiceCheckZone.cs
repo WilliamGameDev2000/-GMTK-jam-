@@ -1,67 +1,76 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DiceCheckZone : MonoBehaviour
 {
-    public static DiceCheckZone checkZone;
-    Vector3 velocity;
+    public static DiceCheckZone Instance;
+    private Vector3 _velocity;
+    public int diceResult;
+    public Action<int> DiceRolled;
 
     private void Awake()
     {
-        if (checkZone == null)
+        if (Instance == null)
         {
-            checkZone = this;
+            Instance = this;
         }
         else
         {
-            Destroy(this);
+            Debug.LogError("There should only be one instance of the DiceCheckZone!");
         }
-        
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        velocity = DiceRoll.DiceVel;
+        _velocity = DiceRoll.DiceVel;
     }
 
-    void OnTriggerStay(Collider col)
+    private void OnTriggerStay(Collider col)
     {
-        if (velocity.x == 0f && velocity.y == 0f && velocity.z ==0f)
+        if (_velocity.x == 0f && _velocity.y == 0f && _velocity.z ==0f)
         {
             switch(col.gameObject.name)
             {
                 case "side1":
                     {
                         Debug.Log("Side6 Has landed");
-                        break;
+                        diceResult = 6;      
+                        break; 
                     }
                 case "side2":
                     {
                         Debug.Log("Side5 Was rolled");
+                        diceResult = 5;
                         break;
                     }
                 case "side3":
                     {
                         Debug.Log("Side4 Facing up");
+                        diceResult = 4;
                         break;
                     }
                 case "side4":
                     {
                         Debug.Log("Side3 Is skyward");
+                        diceResult = 3;
                         break;
                     }
                 case "side5":
                     {
                         Debug.Log("Side2 Is live");
+                        diceResult = 2;
                         break;
                     }
                 case "side6":
                     {
                         Debug.Log("Side1 Our result");
+                        diceResult = 1;
                         break;
                     }
             }
+            DiceRolled?.Invoke(diceResult);
             Activate(false);
         }
     }
