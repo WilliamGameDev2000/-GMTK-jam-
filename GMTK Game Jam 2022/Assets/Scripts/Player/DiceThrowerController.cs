@@ -19,6 +19,12 @@ public class DiceThrowerController : MonoBehaviour
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
+        GameStateManager.Instance.OnStateChange += OnGameStateChange;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnStateChange -= OnGameStateChange;
     }
 
     private void OnEnable()
@@ -51,5 +57,10 @@ public class DiceThrowerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+    }
+
+    private void OnGameStateChange(State NewState)
+    {
+        enabled = NewState == State.Gameplay;
     }
 }

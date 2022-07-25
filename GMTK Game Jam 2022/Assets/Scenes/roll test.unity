@@ -1126,7 +1126,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!54 &2762256357154392398
@@ -1167,6 +1167,10 @@ PrefabInstance:
     - target: {fileID: 7176881565295659980, guid: a249a96b8b3d0804c8307f406b1dae43, type: 3}
       propertyPath: m_Name
       value: Squid Mk2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176881565295659980, guid: a249a96b8b3d0804c8307f406b1dae43, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7553301211832586614, guid: a249a96b8b3d0804c8307f406b1dae43, type: 3}
       propertyPath: m_RootOrder
@@ -1418,7 +1422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6789308712332990722, guid: d4e7ddac781da564ba628ef92ac5a942, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6789308712332990749, guid: d4e7ddac781da564ba628ef92ac5a942, type: 3}
       propertyPath: Dice
