@@ -14,6 +14,8 @@ public class DiceThrowerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 1f;
 
+    [SerializeField] private DiceSpawn diceSpawner;
+
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
@@ -37,6 +39,7 @@ public class DiceThrowerController : MonoBehaviour
     private void DoThrow(InputAction.CallbackContext obj)
     {
         Debug.Log("Throw Dice");
+        diceSpawner.SpawnDice(this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
     }
 
     private void Move()
