@@ -9,5 +9,10 @@ namespace WorldEvents
         {
             Debug.Log("NarrowingPathEvent");
         }
+
+        public void Update()
+        {
+            
+        }
     }
 }

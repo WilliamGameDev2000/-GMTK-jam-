@@ -31,47 +31,50 @@ public class DiceCheckZone : MonoBehaviour
     {
         if (_velocity.x == 0f && _velocity.y == 0f && _velocity.z ==0f)
         {
-            switch(col.gameObject.name)
+            if (col.CompareTag("Dice"))
             {
-                case "side1":
+                switch(col.gameObject.name)
+                {
+                    case "side1":
                     {
                         Debug.Log("Side6 Has landed");
                         diceResult = 6;      
                         break; 
                     }
-                case "side2":
+                    case "side2":
                     {
                         Debug.Log("Side5 Was rolled");
                         diceResult = 5;
                         break;
                     }
-                case "side3":
+                    case "side3":
                     {
                         Debug.Log("Side4 Facing up");
                         diceResult = 4;
                         break;
                     }
-                case "side4":
+                    case "side4":
                     {
                         Debug.Log("Side3 Is skyward");
                         diceResult = 3;
                         break;
                     }
-                case "side5":
+                    case "side5":
                     {
                         Debug.Log("Side2 Is live");
                         diceResult = 2;
                         break;
                     }
-                case "side6":
+                    case "side6":
                     {
                         Debug.Log("Side1 Our result");
                         diceResult = 1;
                         break;
                     }
+                }
+                DiceRolled?.Invoke(diceResult);
+                Activate(false);
             }
-            DiceRolled?.Invoke(diceResult);
-            Activate(false);
         }
     }
 

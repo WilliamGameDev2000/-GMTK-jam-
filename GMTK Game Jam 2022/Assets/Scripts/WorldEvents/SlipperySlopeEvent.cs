@@ -9,5 +9,10 @@ namespace WorldEvents
         {
             Debug.Log("SlipperySlopeEvent");
         }
+
+        public void Update()
+        {
+            
+        }
     }
 }

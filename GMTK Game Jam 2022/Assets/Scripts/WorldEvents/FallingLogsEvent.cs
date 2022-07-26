@@ -9,6 +9,11 @@ namespace WorldEvents
         {
             Debug.Log("FallingLogsEvent");
         }
+
+        public void Update()
+        {
+            
+        }
     }
 }
 
