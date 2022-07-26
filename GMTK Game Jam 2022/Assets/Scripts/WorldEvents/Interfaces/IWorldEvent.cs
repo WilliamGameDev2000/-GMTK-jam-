@@ -1,8 +1,7 @@
 namespace WorldEvents.Interfaces
 {
     /*
-     * All world events triggered by the dice rolls should
-     * inherit from this interface
+     * Interface that all world events should inherit from
      */
     public interface IWorldEvent
     {

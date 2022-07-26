@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WorldEvents;
 using WorldEvents.Interfaces;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,22 +36,18 @@ public class GameManager : MonoBehaviour
     {
         _worldEvents = new List<IWorldEvent>
         {
+            new FloodEvent(),
             new FallingLogsEvent(),
+            new FallingRocksEvent(),
             new SlipperySlopeEvent(),
-            new FallingLogsEvent(),
-            new SlipperySlopeEvent(),
-            new FallingLogsEvent(),
-            new SlipperySlopeEvent(),
+            new NarrowingPathEvent(),
+            new SwapPlayerPositionsEvent()
         };
     }
-    
-    public void TriggerGameEvent(int diceResult)
+
+    private void TriggerGameEvent(int diceResult)
     {
-        Debug.Log("Dice result: " + diceResult);
-        _worldEvents[diceResult-1].Activate(); 
-        /*if (diceResult < 7 || diceResult > -1)
-        {*/
-            
-        /*}*/
+        _worldEvents[Random.Range(0, 6)].Activate();
+        //_worldEvents[diceResult-1].Activate(); 
     }
 }

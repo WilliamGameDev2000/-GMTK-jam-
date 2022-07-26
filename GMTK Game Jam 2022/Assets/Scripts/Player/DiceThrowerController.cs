@@ -6,68 +6,85 @@ using UnityEngine.InputSystem;
 
 public class DiceThrowerController : MonoBehaviour
 {
-    private PlayerInputActions playerInputActions;
-
-    private InputAction verticalMovement;
-
     [SerializeField] private CharacterController controller;
-
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private GameObject dicePrefab;
+    [SerializeField] private GameObject boulderPrefab;
+    [SerializeField] private int numThatDiceSpawnsAt;
+    [SerializeField] private float throwRate;
 
-    [SerializeField] private DiceSpawn diceSpawner;
-
-    Vector3 moveVector = Vector3.zero;
-    private bool throwDice = false;
+    private PlayerInputActions _playerInputActions;
+    private InputAction _verticalMovement;
+    private Vector3 _moveVector = Vector3.zero;
+    private bool _throwDice = false;
+    private int _bouldersSpawnedCount;
+    private int _diceSpawnRateCounter;
+    private float _timeSinceLastThrow;
 
     private void Awake()
     {
-        playerInputActions = new PlayerInputActions();
+        _playerInputActions = new PlayerInputActions();
+    }
+
+    private void Start()
+    {
+        _diceSpawnRateCounter = numThatDiceSpawnsAt;
     }
 
     private void OnEnable()
     {
-        verticalMovement = playerInputActions.DiceThrower.VerticalMovement;
-        verticalMovement.Enable();
+        _verticalMovement = _playerInputActions.DiceThrower.VerticalMovement;
+        _verticalMovement.Enable();
 
         //playerInputActions.DiceThrower.ThrowDice.performed += DoThrow;
-        playerInputActions.DiceThrower.ThrowDice.Enable();
+        _playerInputActions.DiceThrower.ThrowDice.Enable();
     }
 
     private void OnDisable()
     {
-        verticalMovement.Disable();
-        playerInputActions.DiceThrower.ThrowDice.Disable();
+        _verticalMovement.Disable();
+        _playerInputActions.DiceThrower.ThrowDice.Disable();
     }
 
     public void OnThrow(InputAction.CallbackContext context)
     {
-        throwDice = context.action.triggered;
+        _throwDice = context.action.triggered;
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveVector = new Vector3(context.ReadValue<float>(), 0, 0);
+        _moveVector = new Vector3(context.ReadValue<float>(), 0, 0);
     }
 
     private void Move()
     {
-        controller.Move(moveVector * moveSpeed * Time.deltaTime);
+        controller.Move(_moveVector * moveSpeed * Time.deltaTime);
     }
 
     private void Throw()
     {
-        if(throwDice)
+        if(_throwDice && Time.time > _timeSinceLastThrow)
         {
-            Debug.Log("Throw Dice");
-            diceSpawner.SpawnDice(this.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
-            throwDice = false;
+            _bouldersSpawnedCount++;
+            if (_bouldersSpawnedCount >= _diceSpawnRateCounter)
+            {
+                Debug.Log("Throw Dice");
+                Instantiate(dicePrefab, transform.position + new Vector3(0f, 1f, -1f), Quaternion.identity);
+                _diceSpawnRateCounter += numThatDiceSpawnsAt;
+            }
+            else
+            {
+                Debug.Log("Throw Boulder");
+                Instantiate(boulderPrefab, transform.position + new Vector3(0f, 1f, -1f), Quaternion.identity);
+            }
+            _timeSinceLastThrow = Time.time + throwRate;
+            _throwDice = false;
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Move();
         Throw();
     }
-
 }

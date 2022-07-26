@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 8708759931340331050}
   - component: {fileID: -7936926563413210771}
   - component: {fileID: 8708759931340331055}
-  - component: {fileID: 878601941103345582}
   m_Layer: 0
   m_Name: Thrower
   m_TagString: Untagged
@@ -266,7 +265,7 @@ Transform:
   m_GameObject: {fileID: 8708759931340331052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 8708759930400791250}
   m_Father: {fileID: 0}
@@ -433,18 +432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8708759931340331050}
-  moveSpeed: 1
-  diceSpawner: {fileID: 878601941103345582}
---- !u!114 &878601941103345582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8708759931340331052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a89a73a31b49a64ba75a367ecf5fe0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DicePrefab: {fileID: 5867199000762188950, guid: 5e6be7e3b9b4f314fa55d525ba92a867, type: 3}
+  moveSpeed: 2
+  dicePrefab: {fileID: 5867199000762188950, guid: 5e6be7e3b9b4f314fa55d525ba92a867, type: 3}
+  boulderPrefab: {fileID: 6861322057565492748, guid: 203aace4051f8f34eb2c817937ac8d4a, type: 3}
+  numThatDiceSpawnsAt: 3
+  throwRate: 3

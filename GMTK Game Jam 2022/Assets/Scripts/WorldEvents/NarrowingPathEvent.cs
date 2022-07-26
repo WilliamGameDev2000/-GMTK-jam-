@@ -3,12 +3,11 @@ using WorldEvents.Interfaces;
 
 namespace WorldEvents
 {
-    public class FallingLogsEvent : IWorldEvent
+    public class NarrowingPathEvent : IWorldEvent
     {
         public void Activate()
         {
-            Debug.Log("FallingLogsEvent");
+            Debug.Log("NarrowingPathEvent");
         }
     }
 }
-

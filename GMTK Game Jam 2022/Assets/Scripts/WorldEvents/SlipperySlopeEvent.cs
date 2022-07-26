@@ -7,7 +7,7 @@ namespace WorldEvents
     {
         public void Activate()
         {
-            Debug.Log("There");
+            Debug.Log("SlipperySlopeEvent");
         }
     }
 }
