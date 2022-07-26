@@ -21,10 +21,10 @@ public class UIContainerManager : MonoBehaviour
 
     public void SetActiveContainer(GameObject _containerToActivate)
     {
-        if(activeContainer != null)
+        /*if(activeContainer != null)
         {
             activeContainer.SetActive(false);
-        }
+        }*/
         activeContainer = _containerToActivate;
         activeContainer.SetActive(true);
     }
