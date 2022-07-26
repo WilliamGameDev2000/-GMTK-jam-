@@ -70,8 +70,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""c4d76dfa-02cf-4932-8cd9-6ef5fe24f42d"",
+                    ""name"": ""positive"",
+                    ""id"": ""8e852985-3b31-45fa-9c19-7e1d0bf182bd"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -81,8 +81,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""31597d7b-05d5-4c1a-b02a-148358276f68"",
+                    ""name"": ""negative"",
+                    ""id"": ""235f12bc-54fc-4968-8241-0a16ec3a6e76"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -219,7 +219,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""65f00e5c-19fd-46dc-b79b-f524f249e03d"",
+                    ""id"": ""879c61c3-3ff8-4c3e-9b43-79b2fb222f63"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -230,7 +230,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""b77a6ca3-6aa2-4387-85e5-f204ada16d94"",
+                    ""id"": ""e9165886-e8ab-4805-a3de-6babfc4c042e"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -241,7 +241,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""01ec0c91-51e1-4ff2-80c5-8e675c165ff3"",
+                    ""id"": ""d72943e2-fc0b-4b18-93d0-4a08a05abdee"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -252,7 +252,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""ea826f29-e4fb-4fd6-819b-3aeaf33262cd"",
+                    ""id"": ""e7dc696e-4fab-4bef-b9c0-5dd4b6aed180"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",

@@ -21,6 +21,8 @@ public class DiceThrowerController : MonoBehaviour
     private int _diceSpawnRateCounter;
     private float _timeSinceLastThrow;
 
+    [SerializeField] private PlayerSpawner playerSpawner;
+
     private void Awake()
     {
         _playerInputActions = new PlayerInputActions();
@@ -29,6 +31,7 @@ public class DiceThrowerController : MonoBehaviour
     private void Start()
     {
         _diceSpawnRateCounter = numThatDiceSpawnsAt;
+        this.transform.position = playerSpawner.throwerSpawnPoint.position;
     }
 
     private void OnEnable()

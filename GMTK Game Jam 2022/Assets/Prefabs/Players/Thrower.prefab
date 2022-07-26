@@ -265,7 +265,7 @@ Transform:
   m_GameObject: {fileID: 8708759931340331052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8708759930400791250}
   m_Father: {fileID: 0}
@@ -351,7 +351,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-7936926563413210771
 MonoBehaviour:
@@ -432,8 +432,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8708759931340331050}
-  moveSpeed: 2
+  moveSpeed: 3
   dicePrefab: {fileID: 5867199000762188950, guid: 5e6be7e3b9b4f314fa55d525ba92a867, type: 3}
   boulderPrefab: {fileID: 6861322057565492748, guid: 203aace4051f8f34eb2c817937ac8d4a, type: 3}
   numThatDiceSpawnsAt: 3
   throwRate: 3
+  playerSpawner: {fileID: 197057964, guid: 150bab25f30d6e84aa45e9c22c540267, type: 3}
