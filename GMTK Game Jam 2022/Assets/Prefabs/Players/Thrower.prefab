@@ -436,4 +436,4 @@ MonoBehaviour:
   dicePrefab: {fileID: 5867199000762188950, guid: 5e6be7e3b9b4f314fa55d525ba92a867, type: 3}
   boulderPrefab: {fileID: 6861322057565492748, guid: 203aace4051f8f34eb2c817937ac8d4a, type: 3}
   numThatDiceSpawnsAt: 3
-  throwRate: 3
+  throwRate: 2

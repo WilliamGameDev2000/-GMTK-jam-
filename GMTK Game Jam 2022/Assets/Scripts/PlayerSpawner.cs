@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject throwerPrefab;
-    [SerializeField] GameObject dodgerPrefab;
+    [SerializeField] private GameObject throwerPrefab;
+    [SerializeField] private GameObject dodgerPrefab;
 
     [HideInInspector] public int playerID = 0;
 
@@ -61,6 +61,8 @@ public class PlayerSpawner : MonoBehaviour
                 PlayerInput.Instantiate(dodgerPrefab, controlScheme: "Gamepad", pairWithDevice: Gamepad.current);
             }
 
+            dodgerSpawnPoints[i].position = new Vector3(25.32f + (i * 2f), 1.85f, -10.97f);
+            throwerSpawnPoint.position = new Vector3(28f, 21.81f, 27.2f);
             playerID++;
         }
     }

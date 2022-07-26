@@ -530,8 +530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db36104e4bb42b4f9d186fb55dae11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 2
-  LifeTimeInSecs: 10
+  movementForce: 3
+  LifeTimeInSecs: 20
   hitForce: 10
 --- !u!1 &7371566746116108815
 GameObject:

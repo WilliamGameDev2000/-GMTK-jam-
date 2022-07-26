@@ -43,3 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3823ade5f2fb5b644970114bd4ecf863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ocean: {fileID: 0}
+  gamemode: 0
+  countdownTimer: {fileID: 0}
+  gameOver: 0

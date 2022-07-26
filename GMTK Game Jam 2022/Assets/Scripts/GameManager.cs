@@ -53,11 +53,16 @@ public class GameManager : MonoBehaviour
         _worldEvents = new List<IWorldEvent>
         {
             new FloodEvent(ocean, 0.25f),
-            new FallingLogsEvent(),
+            new FloodEvent(ocean, 0.25f),
+            new FloodEvent(ocean, 0.25f),
+            new FloodEvent(ocean, 0.25f),
+            new FloodEvent(ocean, 0.25f),
+            new FloodEvent(ocean, 0.25f)
+            /*new FallingLogsEvent(),
             new FallingRocksEvent(),
             new SlipperySlopeEvent(),
             new NarrowingPathEvent(),
-            new SwapPlayerPositionsEvent()
+            new SwapPlayerPositionsEvent()*/
         };
     }
 
