@@ -56,8 +56,8 @@ public class GameManager : MonoBehaviour
 
     private void TriggerGameEvent(int diceResult)
     {
-        _worldEvents[0].Activate();
+        //_worldEvents[0].Activate();
         //_worldEvents[Random.Range(0, 6)].Activate();
-        //_worldEvents[diceResult-1].Activate(); 
+        _worldEvents[diceResult-1].Activate(); 
     }
 }
