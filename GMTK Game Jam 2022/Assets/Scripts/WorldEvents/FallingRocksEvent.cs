@@ -9,5 +9,10 @@ namespace WorldEvents
         {
             Debug.Log("FallingRocksEvent");
         }
+
+        public void Update()
+        {
+            
+        }
     }
 }

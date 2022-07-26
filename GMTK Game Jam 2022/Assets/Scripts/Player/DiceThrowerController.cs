@@ -72,6 +72,7 @@ public class DiceThrowerController : MonoBehaviour
                 Debug.Log("Throw Dice");
                 Instantiate(dicePrefab, transform.position + new Vector3(0f, 1f, -1f), Quaternion.identity);
                 _diceSpawnRateCounter += numThatDiceSpawnsAt;
+                DiceCheckZone.Instance.Activate(true);
             }
             else
             {

@@ -19,25 +19,24 @@ public class DiceCheckZone : MonoBehaviour
         else
         {
             Debug.LogError("There should only be one instance of the DiceCheckZone!");
+            Destroy(gameObject);
         }
     }
 
     private void FixedUpdate()
     {
-        _velocity = DiceRoll.DiceVel;
+        _velocity = DiceBoulder.DiceVel;
     }
 
     private void OnTriggerStay(Collider col)
     {
-        if (_velocity.x == 0f && _velocity.y == 0f && _velocity.z ==0f)
-        {
-            switch(col.gameObject.name)
+            switch (col.tag)
             {
                 case "side1":
                     {
                         Debug.Log("Side6 Has landed");
-                        diceResult = 6;      
-                        break; 
+                        diceResult = 6;
+                        break;
                     }
                 case "side2":
                     {
@@ -70,9 +69,8 @@ public class DiceCheckZone : MonoBehaviour
                         break;
                     }
             }
-            DiceRolled?.Invoke(diceResult);
-            Activate(false);
-        }
+        Activate(false);
+        DiceRolled?.Invoke(diceResult);
     }
 
     public void Activate(bool activate)

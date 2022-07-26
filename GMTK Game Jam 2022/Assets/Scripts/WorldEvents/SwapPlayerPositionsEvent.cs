@@ -9,5 +9,10 @@ namespace WorldEvents
         {
             Debug.Log("SwapPlayerPositionsEvent");
         }
+
+        public void Update()
+        {
+            
+        }
     }
 }

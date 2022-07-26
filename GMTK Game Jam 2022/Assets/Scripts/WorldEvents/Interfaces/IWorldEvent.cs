@@ -6,5 +6,6 @@ namespace WorldEvents.Interfaces
     public interface IWorldEvent
     {
         public void Activate();
+        public void Update();
     }
 }

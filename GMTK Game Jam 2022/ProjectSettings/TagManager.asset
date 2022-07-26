@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Dodger
   - Dice
+  - side1
+  - side2
+  - side3
+  - side4
+  - side5
+  - side6
   layers:
   - Default
   - TransparentFX

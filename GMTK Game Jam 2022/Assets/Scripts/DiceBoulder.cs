@@ -8,6 +8,7 @@ public class DiceBoulder : MonoBehaviour
     [SerializeField] private float movementForce = 2f;
     [SerializeField] private float LifeTimeInSecs = 5f;
     [SerializeField] private float hitForce = 10f;
+    public static Vector3 DiceVel;
 
     private Rigidbody _rb;
 
@@ -29,7 +30,7 @@ public class DiceBoulder : MonoBehaviour
 
     private void Update()
     {
-        
+        DiceVel = _rb.velocity;
     }
 
     /*private void OnCollisionEnter(Collision collision)

@@ -9,6 +9,8 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; set; }
+    [SerializeField] private Transform ocean;
+    
     private List<IWorldEvent> _worldEvents;
     
     public enum GameMode
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         _worldEvents = new List<IWorldEvent>
         {
-            new FloodEvent(),
+            new FloodEvent(ocean, 0.25f),
             new FallingLogsEvent(),
             new FallingRocksEvent(),
             new SlipperySlopeEvent(),
@@ -59,10 +61,16 @@ public class GameManager : MonoBehaviour
         };
     }
 
+    private void Update()
+    {
+        _worldEvents[0].Update();
+    }
+
     private void TriggerGameEvent(int diceResult)
     {
-        _worldEvents[Random.Range(0, 6)].Activate();
-        //_worldEvents[diceResult-1].Activate(); 
+        //_worldEvents[0].Activate();
+        //_worldEvents[Random.Range(0, 6)].Activate();
+        _worldEvents[diceResult-1].Activate(); 
     }
 
     public void GameOver(string winner)
