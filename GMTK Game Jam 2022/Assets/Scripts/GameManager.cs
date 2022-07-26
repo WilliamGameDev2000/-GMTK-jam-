@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     public CountdownTimer countdownTimer;
 
+    public bool gameOver = false;
+
     private void OnEnable()
     {
         DiceCheckZone.Instance.DiceRolled += TriggerGameEvent; 
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("There should only be one instance of the GameManager!");
         }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -63,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver(string winner)
     {
+        GameManager.Instance.gameOver = true;
         countdownTimer.timerOn = false;
         countdownTimer.roundEndText.text = winner;
         countdownTimer.roundEndText.enabled = true;

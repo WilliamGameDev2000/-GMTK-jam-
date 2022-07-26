@@ -9,7 +9,7 @@ public class FinishLine : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Dodger"))
+        if (other.CompareTag("Dodger") && GameManager.Instance.gameOver == false)
         {
             DiceDodgerController dodger = other.GetComponent<DiceDodgerController>();
 
@@ -27,7 +27,6 @@ public class FinishLine : MonoBehaviour
             {
                 //Debug.Log("Dodger " + other.GetComponent<DiceDodgerController>().dodgerID + " wins!!!");
                 GameManager.Instance.GameOver("Dodger " + other.GetComponent<DiceDodgerController>().dodgerID + " wins!!!");
-
             }
         }
     }
