@@ -17,6 +17,10 @@ public class DiceDodgerController : MonoBehaviour
     private Vector2 moveInput = Vector2.zero;
     private Vector3 velocity = new Vector3(0, 0, 0);
 
+    public int dodgerID;
+
+    public bool Finished = false;
+
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
@@ -27,7 +31,8 @@ public class DiceDodgerController : MonoBehaviour
         movement = playerInputActions.DiceDodger.Movement;
         movement.Enable();
 
-        this.transform.position = PlayerSpawner.Instance.dodgerSpawnPoints[PlayerSpawner.Instance.playerID - 1].position;
+        dodgerID = PlayerSpawner.Instance.playerID;
+        this.transform.position = PlayerSpawner.Instance.dodgerSpawnPoints[dodgerID - 1].position;
     }
 
     private void OnDisable()

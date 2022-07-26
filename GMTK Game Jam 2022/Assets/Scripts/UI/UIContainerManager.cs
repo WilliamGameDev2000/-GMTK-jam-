@@ -40,6 +40,10 @@ public class UIContainerManager : MonoBehaviour
     public void OnQuitButtonPressed()
     {
         Application.Quit();
+
+        #if UNITY_EDITOR //
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif // UNITY_EDITOR
     }
 
     public void OnBackButtonPressed(GameObject returnContainer)
@@ -49,11 +53,13 @@ public class UIContainerManager : MonoBehaviour
 
     public void OnCompetitiveButtonPressed()
     {
+        GameManager.Instance.gamemode = GameManager.GameMode.COMPETITIVE;
         SetActiveContainer(competitiveGameModeContainer);
     }
 
     public void OnCooperativeButtonPressed()
     {
+        GameManager.Instance.gamemode = GameManager.GameMode.COOPERATIVE;
         SetActiveContainer(cooperativeGameModeContainer);
     }
 
@@ -62,15 +68,9 @@ public class UIContainerManager : MonoBehaviour
         PlayerSpawner.Instance.SetNumberOfPlayers(numberOfPlayers);
     }
 
-    public void OnCompetitiveGameModeSelected()
+    public void OnLoadGameScene()
     {
-        //SceneManager.LoadScene("FreeForAll");
-        SceneManager.LoadScene("MultiplayerTest");
-    }
-
-    public void OnCooperativeGameModeSelected()
-    {
-        SceneManager.LoadScene("1V3");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void OnTutorialButtonPressed()

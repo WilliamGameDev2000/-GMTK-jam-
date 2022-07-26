@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8708759930400791250
 RectTransform:
   m_ObjectHideFlags: 0
@@ -437,4 +437,3 @@ MonoBehaviour:
   boulderPrefab: {fileID: 6861322057565492748, guid: 203aace4051f8f34eb2c817937ac8d4a, type: 3}
   numThatDiceSpawnsAt: 3
   throwRate: 3
-  playerSpawner: {fileID: 197057964, guid: 150bab25f30d6e84aa45e9c22c540267, type: 3}

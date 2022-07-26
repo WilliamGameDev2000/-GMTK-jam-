@@ -4,12 +4,22 @@ using UnityEngine;
 using WorldEvents;
 using WorldEvents.Interfaces;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; set; }
     private List<IWorldEvent> _worldEvents;
     
+    public enum GameMode
+    {
+        COMPETITIVE,
+        COOPERATIVE,
+    }
+    public GameMode gamemode;
+
+    public CountdownTimer countdownTimer;
+
     private void OnEnable()
     {
         DiceCheckZone.Instance.DiceRolled += TriggerGameEvent; 
@@ -43,13 +53,18 @@ public class GameManager : MonoBehaviour
             new NarrowingPathEvent(),
             new SwapPlayerPositionsEvent()
         };
-
-        PlayerSpawner.Instance.SpawnPlayers();
     }
 
     private void TriggerGameEvent(int diceResult)
     {
         _worldEvents[Random.Range(0, 6)].Activate();
         //_worldEvents[diceResult-1].Activate(); 
+    }
+
+    public void GameOver(string winner)
+    {
+        countdownTimer.timerOn = false;
+        countdownTimer.roundEndText.text = winner;
+        countdownTimer.roundEndText.enabled = true;
     }
 }

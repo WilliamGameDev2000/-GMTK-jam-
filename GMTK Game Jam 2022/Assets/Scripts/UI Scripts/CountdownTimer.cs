@@ -6,16 +6,18 @@ using TMPro;
 public class CountdownTimer : MonoBehaviour
 {
     [SerializeField] private float timeLeft;
-    private bool timerOn = false;
+    public bool timerOn = false;
 
-    [SerializeField] private TMP_Text timerText;
+    public TMP_Text timerText;
 
-    [SerializeField] private GameObject roundEndTextObjects;
+    public TMP_Text roundEndText;
 
     void Start()
     {
         timerOn = true;
-        roundEndTextObjects.SetActive(false);
+        roundEndText.enabled = false;
+
+        GameManager.Instance.countdownTimer = this;
     }
 
 
@@ -32,9 +34,7 @@ public class CountdownTimer : MonoBehaviour
             {
                 Debug.Log("Timer finished");
                 timeLeft = 0;
-                timerOn = false;
-
-                roundEndTextObjects.SetActive(true);
+                GameManager.Instance.GameOver("Thrower Wins!!!");
             }
         }
     }
