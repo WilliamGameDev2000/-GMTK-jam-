@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 7842185353439011919}
   - component: {fileID: 471380591427139547}
   - component: {fileID: 7455559473482286465}
-  - component: {fileID: 197057964}
   m_Layer: 0
   m_Name: PlayerSpawner
   m_TagString: Untagged
@@ -185,23 +184,12 @@ MonoBehaviour:
   throwerPrefab: {fileID: 8708759931340331052, guid: bb4ae62142157144d9a45e2ef96f0c07, type: 3}
   dodgerPrefab: {fileID: 8433448144283424868, guid: 7b81e271218b02146a500fa3fa4f7029, type: 3}
   playerID: 0
---- !u!114 &197057964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7842185353439011913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a4ef59fcb4d1a4196e62dcad8dc531, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   throwerSpawnPoint: {fileID: 6637304921037185565}
   dodgerSpawnPoints:
   - {fileID: 4283059527662070219}
   - {fileID: 3524733144015241721}
   - {fileID: 3412589544136910023}
+  numberOfPlayers: 0
 --- !u!1 &8831240981706513160
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
             new NarrowingPathEvent(),
             new SwapPlayerPositionsEvent()
         };
+
+        PlayerSpawner.Instance.SpawnPlayers();
     }
 
     private void TriggerGameEvent(int diceResult)

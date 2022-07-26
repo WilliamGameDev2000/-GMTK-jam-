@@ -8,7 +8,10 @@ public class UIContainerManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuContainer;
     [SerializeField] private GameObject gameModeContainer;
     [SerializeField] private GameObject howToPlayContainer;
-    
+
+    [SerializeField] private GameObject competitiveGameModeContainer;
+    [SerializeField] private GameObject cooperativeGameModeContainer;
+
     private GameObject activeContainer;
 
     public void Awake()
@@ -39,17 +42,33 @@ public class UIContainerManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnBackButtonPressed()
+    public void OnBackButtonPressed(GameObject returnContainer)
     {
-        SetActiveContainer(mainMenuContainer);
+        SetActiveContainer(returnContainer);
     }
 
     public void OnCompetitiveButtonPressed()
     {
-        SceneManager.LoadScene("FreeForAll");
+        SetActiveContainer(competitiveGameModeContainer);
     }
 
     public void OnCooperativeButtonPressed()
+    {
+        SetActiveContainer(cooperativeGameModeContainer);
+    }
+
+    public void OnNumberOfPlayersSelected(int numberOfPlayers)
+    {
+        PlayerSpawner.Instance.SetNumberOfPlayers(numberOfPlayers);
+    }
+
+    public void OnCompetitiveGameModeSelected()
+    {
+        //SceneManager.LoadScene("FreeForAll");
+        SceneManager.LoadScene("MultiplayerTest");
+    }
+
+    public void OnCooperativeGameModeSelected()
     {
         SceneManager.LoadScene("1V3");
     }
