@@ -4272,6 +4272,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1898600224561068748, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
+      propertyPath: sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898600224561068748, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0c1715d37b5ffc748a6690ecdbd208b4, type: 3}
+    - target: {fileID: 1898600224561068748, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: Grab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898600224561068748, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 496fb783e2a0fb2498c279acb76ddab1, type: 3}
+    - target: {fileID: 1898600224561068748, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898600224561068748, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898600224561068748, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
+      propertyPath: sounds.Array.data[2].pitch
+      value: 1.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898600224561068748, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898600224561068748, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.67
+      objectReference: {fileID: 0}
     - target: {fileID: 1898600224561068749, guid: 7be3f1ab93de65f4a82345b1b3cd3d2f, type: 3}
       propertyPath: m_RootOrder
       value: 6

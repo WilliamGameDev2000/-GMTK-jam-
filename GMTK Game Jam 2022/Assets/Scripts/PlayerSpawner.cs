@@ -62,6 +62,7 @@ public class PlayerSpawner : MonoBehaviour
                 PlayerInput.Instantiate(dodgerPrefab, controlScheme: "Gamepad", pairWithDevice: Gamepad.current);
             }
 
+            audiomanager.instance.Play("Spawn");
             dodgerSpawnPoints[i].position = new Vector3(25.32f + (i * 2f), 1.85f, -10.97f);
             throwerSpawnPoint.position = new Vector3(28f, 21.81f, 27.2f);
             playerID++;

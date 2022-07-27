@@ -76,6 +76,7 @@ public class DiceCheckZone : MonoBehaviour
                     break;
                 }
         }
+        col.gameObject.SetActive(false);
         Activate(false);
     }
 
