@@ -10,6 +10,8 @@ namespace WorldEvents
         public static WorldEventManager Instance;
         public Action<string> OnWorldEventTriggered;
         [SerializeField] private Transform ocean;
+        [SerializeField] private Transform[] spikeLogSpawnPositions;
+        [SerializeField] private GameObject spikeLogPrefab;
         
         private List<IWorldEvent> _worldEvents;
         
@@ -41,7 +43,7 @@ namespace WorldEvents
             _worldEvents = new List<IWorldEvent>
             {
                 new FloodEvent(ocean, 0.5f),
-                new FallingLogsEvent(),
+                new FallingLogsEvent(spikeLogPrefab, spikeLogSpawnPositions, 2.0f, 3),
                 new FallingRocksEvent(),
                 new SlipperySlopeEvent(),
                 new NarrowingPathEvent(),
