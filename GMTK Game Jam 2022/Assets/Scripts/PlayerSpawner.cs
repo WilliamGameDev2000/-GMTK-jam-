@@ -28,6 +28,7 @@ public class PlayerSpawner : MonoBehaviour
         {
             Debug.LogError("There should only be one instance of " + this.name);
             Destroy(Instance);
+            return;
         }
     }
 
