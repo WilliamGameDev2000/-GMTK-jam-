@@ -9,8 +9,7 @@ public class UIContainerManager : MonoBehaviour
     [SerializeField] private GameObject gameModeContainer;
     [SerializeField] private GameObject howToPlayContainer;
 
-    [SerializeField] private GameObject competitiveGameModeContainer;
-    [SerializeField] private GameObject cooperativeGameModeContainer;
+    [SerializeField] private GameObject PlayerSelectContainer;
 
     private GameObject activeContainer;
 
@@ -54,13 +53,13 @@ public class UIContainerManager : MonoBehaviour
     public void OnCompetitiveButtonPressed()
     {
         GameManager.Instance.gamemode = GameManager.GameMode.COMPETITIVE;
-        SetActiveContainer(competitiveGameModeContainer);
+        SetActiveContainer(PlayerSelectContainer);
     }
 
     public void OnCooperativeButtonPressed()
     {
         GameManager.Instance.gamemode = GameManager.GameMode.COOPERATIVE;
-        SetActiveContainer(cooperativeGameModeContainer);
+        SetActiveContainer(PlayerSelectContainer);
     }
 
     public void OnNumberOfPlayersSelected(int numberOfPlayers)
