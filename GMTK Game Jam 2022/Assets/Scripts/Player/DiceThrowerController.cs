@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class DiceThrowerController : MonoBehaviour
 {
+    public static DiceThrowerController Instance;
+    public Action<int> OnDiceThrown;
+    
     [SerializeField] private CharacterController controller;
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private GameObject dicePrefab;
@@ -23,6 +26,16 @@ public class DiceThrowerController : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogError("There should only be one instance of the DiceThrowerController!");
+            Destroy(gameObject);
+        }
+        
         _playerInputActions = new PlayerInputActions();
     }
 
@@ -69,17 +82,16 @@ public class DiceThrowerController : MonoBehaviour
             _bouldersSpawnedCount++;
             if (_bouldersSpawnedCount >= _diceSpawnRateCounter)
             {
-                Debug.Log("Throw Dice");
                 Instantiate(dicePrefab, transform.position + new Vector3(0f, 1f, -1f), Quaternion.identity);
                 _diceSpawnRateCounter += numThatDiceSpawnsAt;
                 DiceCheckZone.Instance.Activate(true);
             }
             else
             {
-                Debug.Log("Throw Boulder");
                 Instantiate(boulderPrefab, transform.position + new Vector3(0f, 1f, -1f), Quaternion.identity);
             }
             _timeSinceLastThrow = Time.time + throwRate;
+            OnDiceThrown?.Invoke(_bouldersSpawnedCount);
             _throwDice = false;
         }
     }
@@ -88,5 +100,15 @@ public class DiceThrowerController : MonoBehaviour
     {
         Move();
         Throw();
+    }
+
+    public int GetThrowNumThatDiceSpawnsAt()
+    {
+        return numThatDiceSpawnsAt;
+    }
+
+    public float GetTimeSinceLastThrow()
+    {
+        return _timeSinceLastThrow;
     }
 }

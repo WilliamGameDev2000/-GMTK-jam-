@@ -18,7 +18,6 @@ namespace WorldEvents
         
         public void Activate()
         {
-            Debug.Log("FloodEvent");
             _isActive = true;
         }
 

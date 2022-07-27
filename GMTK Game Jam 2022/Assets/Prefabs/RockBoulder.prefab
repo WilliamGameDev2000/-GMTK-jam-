@@ -128,4 +128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementForce: 2
   LifeTimeInSecs: 10
-  hitForce: 10
+  hitForce: 200

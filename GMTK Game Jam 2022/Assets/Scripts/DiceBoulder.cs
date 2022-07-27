@@ -33,18 +33,7 @@ public class DiceBoulder : MonoBehaviour
         DiceVel = _rb.velocity;
     }
 
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Dodger"))
-        {
-            Debug.Log("Hit Dodger");
-            GameObject dodger = collision.gameObject;
-            //dodger.GetComponent<Rigidbody>().AddForce(Vector3.back * forceMultiplier, ForceMode.Impulse);
-            dodger.GetComponent<CharacterController>().Move(Vector3.back * hitForce * Time.deltaTime);
-        }
-    }*/
-
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Dodger"))
         {
